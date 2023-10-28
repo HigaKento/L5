@@ -1,0 +1,5 @@
+<h1>ユーザー一覧</h1>
+<% @users.each do |user| %>
+<%= user.uid %>：<%= user.pass %><br>
+<% end %>
+<%= link_to "新規追加",users_new_path %>
