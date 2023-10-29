@@ -1,17 +1,13 @@
-<% if flash[:notice] %>
-    <%= flash[:notice] %>
-<% end %>
-
-<% @tweets.each do |e| %>
+<% @tweets.each do |tweet| %>
     <p>
         <div id=tweet>
         <%= image_tag 'icon.png' %>
-        <%= "比嘉" %><br></br>
-        <%= e.message %>
-        <%= ((Time.current - e.tdate)/60).to_i %>分前
-        <%=link_to '削除', "/tweets/#{e.id}", data: { turbo_method: :delete } %>
+
+        <%= tweet.message %>
+        <%=link_to '[削除]', "/tweets/#{tweet.id}", data: { turbo_method: :delete } %>
         </div>
     </p>
 <% end %>
 
-<%= link_to 'ツイートする', new_tweet_path %>
+<%= link_to '[ツイートする]', new_tweet_path %>
+<%= link_to "[ユーザー登録]", users_index_path %>

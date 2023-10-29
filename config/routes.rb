@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   resources :users
   get 'users/new'
   post 'users',to:'users#create'
-  root 'users#index'
-  post 'top/login'
-  get 'top/logout'
+  resources :tweets
+  get 'tweets/new'
+  post 'tweets',to:'tweets#create'
+  root 'tweets#index'
+  
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
